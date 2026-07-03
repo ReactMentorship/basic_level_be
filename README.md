@@ -11,17 +11,54 @@ no database required. All data resets on restart.
 
 ## Setup & run
 
-```bash
-# from this folder
-python -m venv .venv
-source .venv/Scripts/activate   # Windows (Git Bash);  .venv\Scripts\activate on PowerShell
-pip install -r requirements.txt
+From this folder (`basic_level_be`):
 
-python run.py                   # or: uvicorn app.main:app --reload --port 8000
+**1. Create the virtual environment** (only the first time):
+
+```bash
+python -m venv .venv
+```
+
+**2. Activate it** — use the line that matches your terminal:
+
+```powershell
+# Windows · PowerShell
+.\.venv\Scripts\Activate.ps1
+```
+
+```bash
+# Windows · Git Bash
+source .venv/Scripts/activate
+
+# macOS / Linux
+source .venv/bin/activate
+```
+
+When it is active your prompt starts with `(.venv)`.
+
+> **PowerShell only:** if you get an *"execution policy"* error, allow scripts for
+> the current terminal session and activate again:
+> ```powershell
+> Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+> ```
+
+**3. Install the dependencies** (only the first time):
+
+```bash
+pip install -r requirements.txt
+```
+
+**4. Start the server:**
+
+```bash
+python run.py        # or: uvicorn app.main:app --reload --port 8000
 ```
 
 The API runs at `http://localhost:8000` with routes under `/api`.
 Interactive docs (Swagger UI): `http://localhost:8000/docs`.
+
+> Tip: you can skip activation and run it with the venv's Python directly —
+> PowerShell: `.\.venv\Scripts\python.exe run.py`
 
 ## Default credentials
 
